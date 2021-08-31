@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insigma.business.persistent.mybatis.dao.Al08Mapper">
+  <resultMap id="BaseResultMap" type="com.insigma.business.persistent.mybatis.entity.Al08">
+    <result column="aal801" jdbcType="BIGINT" property="aal801" />
+    <result column="aab101" jdbcType="BIGINT" property="aab101" />
+    <result column="aae101s" jdbcType="VARCHAR" property="aae101s" />
+    <result column="aae601" jdbcType="BIGINT" property="aae601" />
+    <result column="aal802" jdbcType="TIMESTAMP" property="aal802" />
+    <result column="aal803" jdbcType="VARCHAR" property="aal803" />
+    <result column="aal804" jdbcType="VARCHAR" property="aal804" />
+    <result column="aal805" jdbcType="VARCHAR" property="aal805" />
+    <result column="aal806" jdbcType="VARCHAR" property="aal806" />
+    <result column="aal807" jdbcType="VARCHAR" property="aal807" />
+    <result column="aal808" jdbcType="VARCHAR" property="aal808" />
+  </resultMap>
+  <insert id="insert" parameterType="com.insigma.business.persistent.mybatis.entity.Al08">
+    <selectKey keyProperty="aal801" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into al08 (aab101, aae101s, aae601, 
+      aal802, aal803, aal804, 
+      aal805, aal806, aal807, 
+      aal808)
+    values (#{aab101,jdbcType=BIGINT}, #{aae101s,jdbcType=VARCHAR}, #{aae601,jdbcType=BIGINT}, 
+      #{aal802,jdbcType=TIMESTAMP}, #{aal803,jdbcType=VARCHAR}, #{aal804,jdbcType=VARCHAR}, 
+      #{aal805,jdbcType=VARCHAR}, #{aal806,jdbcType=VARCHAR}, #{aal807,jdbcType=VARCHAR}, 
+      #{aal808,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select aal801, aab101, aae101s, aae601, aal802, aal803, aal804, aal805, aal806, aal807, 
+    aal808
+    from al08
+  </select>
+</mapper>

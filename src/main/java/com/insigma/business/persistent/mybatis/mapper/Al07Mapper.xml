@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insigma.business.persistent.mybatis.dao.Al07Mapper">
+  <resultMap id="BaseResultMap" type="com.insigma.business.persistent.mybatis.entity.Al07">
+    <result column="aal701" jdbcType="BIGINT" property="aal701" />
+    <result column="aab101" jdbcType="BIGINT" property="aab101" />
+    <result column="aae101" jdbcType="VARCHAR" property="aae101" />
+    <result column="aae201s" jdbcType="VARCHAR" property="aae201s" />
+    <result column="aae301s" jdbcType="VARCHAR" property="aae301s" />
+    <result column="aae401s" jdbcType="VARCHAR" property="aae401s" />
+    <result column="aaf101s" jdbcType="VARCHAR" property="aaf101s" />
+    <result column="aal702" jdbcType="TIMESTAMP" property="aal702" />
+    <result column="aal703" jdbcType="VARCHAR" property="aal703" />
+    <result column="aal704" jdbcType="VARCHAR" property="aal704" />
+    <result column="aal705" jdbcType="VARCHAR" property="aal705" />
+    <result column="aal706" jdbcType="VARCHAR" property="aal706" />
+    <result column="aal707" jdbcType="VARCHAR" property="aal707" />
+    <result column="aal708" jdbcType="VARCHAR" property="aal708" />
+  </resultMap>
+  <insert id="insert" parameterType="com.insigma.business.persistent.mybatis.entity.Al07">
+    <selectKey keyProperty="aal701" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into al07 (aab101, aae101, aae201s, 
+      aae301s, aae401s, aaf101s, 
+      aal702, aal703, aal704, 
+      aal705, aal706, aal707, 
+      aal708)
+    values (#{aab101,jdbcType=BIGINT}, #{aae101,jdbcType=VARCHAR}, #{aae201s,jdbcType=VARCHAR}, 
+      #{aae301s,jdbcType=VARCHAR}, #{aae401s,jdbcType=VARCHAR}, #{aaf101s,jdbcType=VARCHAR}, 
+      #{aal702,jdbcType=TIMESTAMP}, #{aal703,jdbcType=VARCHAR}, #{aal704,jdbcType=VARCHAR}, 
+      #{aal705,jdbcType=VARCHAR}, #{aal706,jdbcType=VARCHAR}, #{aal707,jdbcType=VARCHAR}, 
+      #{aal708,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select aal701, aab101, aae101, aae201s, aae301s, aae401s, aaf101s, aal702, aal703, 
+    aal704, aal705, aal706, aal707, aal708
+    from al07
+  </select>
+</mapper>

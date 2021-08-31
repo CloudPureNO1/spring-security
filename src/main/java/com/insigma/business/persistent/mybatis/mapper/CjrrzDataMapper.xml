@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insigma.business.persistent.mybatis.dao.CjrrzDataMapper">
+  <resultMap id="BaseResultMap" type="com.insigma.business.persistent.mybatis.entity.CjrrzData">
+    <result column="ST_ID" jdbcType="BIGINT" property="stId" />
+    <result column="ST_DATE" jdbcType="TIMESTAMP" property="stDate" />
+    <result column="ST_LEVY_YEAR" jdbcType="VARCHAR" property="stLevyYear" />
+    <result column="ST_ID_NUMBER" jdbcType="VARCHAR" property="stIdNumber" />
+    <result column="ST_USER_NAME" jdbcType="VARCHAR" property="stUserName" />
+    <result column="ST_CREDIT_CODE" jdbcType="VARCHAR" property="stCreditCode" />
+    <result column="ST_CREDIT_NAME" jdbcType="VARCHAR" property="stCreditName" />
+    <result column="NM_IS_DISABILITY_STUDENT" jdbcType="VARCHAR" property="nmIsDisabilityStudent" />
+    <result column="ST_EDUCATION_LEVEL" jdbcType="VARCHAR" property="stEducationLevel" />
+    <result column="ST_GRADUATION_DATE" jdbcType="VARCHAR" property="stGraduationDate" />
+    <result column="NM_IS_LOCAL_CENSUS" jdbcType="VARCHAR" property="nmIsLocalCensus" />
+    <result column="ST_DISABILITY_ID_TYPE" jdbcType="VARCHAR" property="stDisabilityIdType" />
+    <result column="ST_DISABILITY_ID_NUMBER" jdbcType="VARCHAR" property="stDisabilityIdNumber" />
+    <result column="ST_DISABILITY_TYPE" jdbcType="VARCHAR" property="stDisabilityType" />
+    <result column="ST_DISABILITY_LEVEL" jdbcType="VARCHAR" property="stDisabilityLevel" />
+    <result column="ST_OPENING_DATE" jdbcType="VARCHAR" property="stOpeningDate" />
+    <result column="NM_PAY_MONTHS" jdbcType="INTEGER" property="nmPayMonths" />
+    <result column="NM_CHECK_NUMBER" jdbcType="INTEGER" property="nmCheckNumber" />
+  </resultMap>
+
+
+
+  <insert id="insert" parameterType="com.insigma.business.persistent.mybatis.entity.CjrrzData">
+    <selectKey keyProperty="stId" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into cjrrz_data (ST_DATE, ST_LEVY_YEAR, ST_ID_NUMBER, 
+      ST_USER_NAME, ST_CREDIT_CODE, ST_CREDIT_NAME, 
+      NM_IS_DISABILITY_STUDENT, ST_EDUCATION_LEVEL, 
+      ST_GRADUATION_DATE, NM_IS_LOCAL_CENSUS, ST_DISABILITY_ID_TYPE, 
+      ST_DISABILITY_ID_NUMBER, ST_DISABILITY_TYPE, 
+      ST_DISABILITY_LEVEL, ST_OPENING_DATE, NM_PAY_MONTHS, 
+      NM_CHECK_NUMBER)
+    values (#{stDate,jdbcType=TIMESTAMP}, #{stLevyYear,jdbcType=VARCHAR}, #{stIdNumber,jdbcType=VARCHAR}, 
+      #{stUserName,jdbcType=VARCHAR}, #{stCreditCode,jdbcType=VARCHAR}, #{stCreditName,jdbcType=VARCHAR}, 
+      #{nmIsDisabilityStudent,jdbcType=VARCHAR}, #{stEducationLevel,jdbcType=VARCHAR}, 
+      #{stGraduationDate,jdbcType=VARCHAR}, #{nmIsLocalCensus,jdbcType=VARCHAR}, #{stDisabilityIdType,jdbcType=VARCHAR}, 
+      #{stDisabilityIdNumber,jdbcType=VARCHAR}, #{stDisabilityType,jdbcType=VARCHAR}, 
+      #{stDisabilityLevel,jdbcType=VARCHAR}, #{stOpeningDate,jdbcType=VARCHAR}, #{nmPayMonths,jdbcType=INTEGER}, 
+      #{nmCheckNumber,jdbcType=INTEGER})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ST_ID, ST_DATE, ST_LEVY_YEAR, ST_ID_NUMBER, ST_USER_NAME, ST_CREDIT_CODE, 
+    ST_CREDIT_NAME, NM_IS_DISABILITY_STUDENT, ST_EDUCATION_LEVEL, ST_GRADUATION_DATE, 
+    NM_IS_LOCAL_CENSUS, ST_DISABILITY_ID_TYPE, ST_DISABILITY_ID_NUMBER, ST_DISABILITY_TYPE, 
+    ST_DISABILITY_LEVEL, ST_OPENING_DATE, NM_PAY_MONTHS, NM_CHECK_NUMBER
+    from cjrrz_data
+  </select>
+</mapper>

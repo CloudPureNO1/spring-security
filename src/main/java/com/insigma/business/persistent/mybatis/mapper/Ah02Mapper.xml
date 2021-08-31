@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.insigma.business.persistent.mybatis.dao.Ah02Mapper">
+  <resultMap id="BaseResultMap" type="com.insigma.business.persistent.mybatis.entity.Ah02">
+    <result column="aah201" jdbcType="BIGINT" property="aah201" />
+    <result column="aah202" jdbcType="VARCHAR" property="aah202" />
+    <result column="aah203" jdbcType="VARCHAR" property="aah203" />
+    <result column="aah204" jdbcType="TIMESTAMP" property="aah204" />
+    <result column="aah205" jdbcType="BIGINT" property="aah205" />
+    <result column="aah206" jdbcType="VARCHAR" property="aah206" />
+    <result column="aah207" jdbcType="VARCHAR" property="aah207" />
+    <result column="aah102" jdbcType="INTEGER" property="aah102" />
+    <result column="aah103" jdbcType="INTEGER" property="aah103" />
+  </resultMap>
+  <insert id="insert" parameterType="com.insigma.business.persistent.mybatis.entity.Ah02">
+    <selectKey keyProperty="aah201" order="BEFORE" resultType="java.lang.Long">
+      select f_nextval('seq_ah02_aah201')
+    </selectKey>
+    insert into ah02 (aah201, aah202, aah203, 
+      aah204, aah205, aah206, 
+      aah207, aah102, aah103
+      )
+    values (#{aah201,jdbcType=BIGINT}, #{aah202,jdbcType=VARCHAR}, #{aah203,jdbcType=VARCHAR}, 
+      #{aah204,jdbcType=TIMESTAMP}, #{aah205,jdbcType=BIGINT}, #{aah206,jdbcType=VARCHAR}, 
+      #{aah207,jdbcType=VARCHAR}, #{aah102,jdbcType=INTEGER}, #{aah103,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select aah201, aah202, aah203, aah204, aah205, aah206, aah207, aah102, aah103
+    from ah02
+  </select>
+</mapper>
